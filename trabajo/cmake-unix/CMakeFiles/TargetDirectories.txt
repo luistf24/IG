@@ -1,0 +1,3 @@
+/home/luistf/DGIIM5/1ºCuatrimestre/IG/Prácticas/cr/trabajo/cmake-unix/CMakeFiles/rebuild_cache.dir
+/home/luistf/DGIIM5/1ºCuatrimestre/IG/Prácticas/cr/trabajo/cmake-unix/CMakeFiles/edit_cache.dir
+/home/luistf/DGIIM5/1ºCuatrimestre/IG/Prácticas/cr/trabajo/cmake-unix/CMakeFiles/pracs_ig_exe.dir
