@@ -43,6 +43,32 @@ class MallaRevolPLY : public MallaRevol
                   const unsigned nperfiles ) ;
 } ;
 
+class Cilindro : public MallaRevol
+{
+   Cilindro
+   (
+      const int num_verts_per,
+      const unsigned nperfiles
+   ) ;
+} ;
 
 
+class Cono : public MallaRevol
+{
+   Cono
+   (
+      const int num_verts_per,
+      const unsigned nperfiles
+   ) ;
+} ;
+
+
+class Esfera : public MallaRevol
+{
+   Esfera
+   (
+      const int num_verts_per,
+      const unsigned nperfiles
+   ) ;
+} ;
 #endif

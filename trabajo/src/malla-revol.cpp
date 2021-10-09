@@ -27,8 +27,32 @@ void MallaRevol::inicializar
 )
 {
    // COMPLETAR: Práctica 2: completar: creación de la malla....
+   Matriz4f rotacion;
+   Tupla3f vertice;
 
+   for (unsigned i=0; i<num_copias; i++)
+   {
+      rotacion = MAT_Rotacion((360.0*i)/(num_copias-1), 0.0, 1.0, 0.0); //El eje de rotación es el Y 
+      
+      for (int j=0; j<perfil.size(); j++)
+      {   
+         vertice = rotacion*perfil[j]; //Rotamos el vertice
+         vertices.push_back(vertice);  //Metemos el nuevo vertice rotado en los vertices 
+      }
+   }
 
+   int k;
+   int m=perfil.size();
+
+   for (unsigned i=0; i<num_copias-1; i++)
+   {
+      for (int j=0; j<m-1; j++)
+      {
+         k=i*m + j;
+         triangulos.push_back(Tupla3i (k, k+m, k+m+1));
+         triangulos.push_back(Tupla3i (k, k+m+1, k+1));
+      }
+   }
 
 
 
@@ -47,8 +71,8 @@ MallaRevolPLY::MallaRevolPLY
    // COMPLETAR: práctica 2: crear la malla de revolución
    // Leer los vértice del perfil desde un PLY, después llamar a 'inicializar'
    // ...........................
-
-
+   vector<Tupla3f> perfil;
+   LeerVerticesPLY(nombre_arch, perfil);
+   inicializar(perfil,nperfiles);
 }
-
 
