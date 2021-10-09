@@ -180,6 +180,16 @@ Escena2::Escena2()
 {
    using namespace std ;
    cout << "Creando objetos de escena2 ...." << flush ;
+   
+   objetos.push_back( new MallaPLY("../recursos/plys/beethoven.ply") );
+   objetos.push_back( new MallaPLY("../recursos/plys/big_dodge.ply") );
+   objetos.push_back( new MallaPLY("../recursos/plys/ant.ply") );
+
+   objetos.push_back( new MallaRevolPLY("../recursos/plys/peon.ply", 11) );
+   
+   objetos.push_back( new Cilindro(20, 40) );
+   objetos.push_back( new Cono(15, 40) );
+   objetos.push_back( new Esfera(30,230) );
 
    cout << "hecho." << endl << flush ;
 }

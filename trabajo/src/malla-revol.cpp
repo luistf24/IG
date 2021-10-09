@@ -29,12 +29,13 @@ void MallaRevol::inicializar
    // COMPLETAR: Práctica 2: completar: creación de la malla....
    Matriz4f rotacion;
    Tupla3f vertice;
+   int m=perfil.size();
 
    for (unsigned i=0; i<num_copias; i++)
    {
       rotacion = MAT_Rotacion((360.0*i)/(num_copias-1), 0.0, 1.0, 0.0); //El eje de rotación es el Y 
       
-      for (int j=0; j<perfil.size(); j++)
+      for (int j=0; j<m; j++)
       {   
          vertice = rotacion*perfil[j]; //Rotamos el vertice
          vertices.push_back(vertice);  //Metemos el nuevo vertice rotado en los vertices 
@@ -42,8 +43,6 @@ void MallaRevol::inicializar
    }
 
    int k;
-   int m=perfil.size();
-
    for (unsigned i=0; i<num_copias-1; i++)
    {
       for (int j=0; j<m-1; j++)
@@ -76,3 +75,67 @@ MallaRevolPLY::MallaRevolPLY
    inicializar(perfil,nperfiles);
 }
 
+Cilindro::Cilindro
+(
+ const int num_verts_per,
+ const unsigned nperfiles 
+)
+{
+   ponerNombre(std::string("Cilindro"));
+   assert(num_verts_per >= 4);
+
+   vector<Tupla3f> perfil;
+   float y;
+   perfil.push_back({0.0, -1.0, 0.0});
+   for (int i=0; i<num_verts_per-2; i++)
+   {
+      y=-1.0+(2.0*(float)i/(num_verts_per-3));
+      
+      perfil.push_back({1.0, y, 0.0});
+   }
+      perfil.push_back({0.0, 1.0, 0.0});
+      inicializar(perfil, nperfiles);
+}
+
+Cono::Cono
+(
+ const int num_verts_per,
+ const unsigned nperfiles
+)
+{
+   ponerNombre(std::string("Cono"));
+   assert(num_verts_per >= 3);
+   
+   vector<Tupla3f> perfil;
+   /*perfil.push_back({0.0, 0.0, 0.0});*/
+
+   for (int i=0; i<num_verts_per; i++)
+      perfil.push_back({1-(float)i/(num_verts_per-1), (float)i/(num_verts_per-1), 0.0});  
+
+   inicializar(perfil, nperfiles);
+}
+
+Esfera::Esfera
+(
+ const int num_verts_per,
+ const unsigned nperfiles
+)
+{
+   ponerNombre(std::string("Esfera"));
+   assert(num_verts_per >= 3);
+
+   Tupla3f p;
+   Matriz4f rotacion;
+
+   vector<Tupla3f> perfil;
+   perfil.push_back({0.0, -1.0, 0.0});
+
+   for (int i=0; i<num_verts_per; i++)
+   {
+      rotacion= MAT_Rotacion((180.0*i)/(num_verts_per-1), 1.0, 0.0, 0.0);
+      p = rotacion * perfil[0];
+      perfil.push_back(p);
+   }
+
+   inicializar(perfil,nperfiles);
+}

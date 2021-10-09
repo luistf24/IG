@@ -45,6 +45,7 @@ class MallaRevolPLY : public MallaRevol
 
 class Cilindro : public MallaRevol
 {
+   public:
    Cilindro
    (
       const int num_verts_per,
@@ -55,6 +56,7 @@ class Cilindro : public MallaRevol
 
 class Cono : public MallaRevol
 {
+   public:
    Cono
    (
       const int num_verts_per,
@@ -65,6 +67,7 @@ class Cono : public MallaRevol
 
 class Esfera : public MallaRevol
 {
+   public:
    Esfera
    (
       const int num_verts_per,
