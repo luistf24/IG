@@ -137,5 +137,30 @@ Esfera::Esfera
       perfil.push_back(p);
    }
 
-   inicializar(perfil,nperfiles);
+   inicializar(perfil, nperfiles);
+}
+
+
+Toro::Toro
+(
+ const int num_verts_per,
+ const unsigned nperfiles 
+)
+{
+   ponerNombre(std::string("Toro"));
+
+   Tupla3f p;
+   Matriz4f rotacion;
+
+   vector<Tupla3f> perfil;
+
+   for (int i=0; i<num_verts_per; i++)
+   {
+      rotacion= MAT_Rotacion((360.0*i)/((num_verts_per-1)), 1.0, 0.0, 0.0);
+      p = rotacion*Tupla3f (0.0, -1.0, 0.0);
+      p = Tupla3f (0.0, 0.0, 3.0) + p;
+      perfil.push_back(p);
+   }
+ 
+   inicializar(perfil, nperfiles);
 }

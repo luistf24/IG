@@ -74,4 +74,16 @@ class Esfera : public MallaRevol
       const unsigned nperfiles
    ) ;
 } ;
+
+
+class Toro : public MallaRevol
+{
+   public:
+   Toro
+   (
+      const int num_verts_per,
+      const unsigned nperfiles
+   ) ;
+} ;
+
 #endif
