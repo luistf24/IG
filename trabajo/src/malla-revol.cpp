@@ -130,10 +130,10 @@ Esfera::Esfera
    vector<Tupla3f> perfil;
    perfil.push_back({0.0, -1.0, 0.0});
 
-   for (int i=0; i<num_verts_per; i++)
+   for (int i=1; i<num_verts_per; i++)
    {
       rotacion= MAT_Rotacion((180.0*i)/(num_verts_per-1), 1.0, 0.0, 0.0);
-      p = rotacion * perfil[0];
+      p = rotacion*Tupla3f (0.0, -1.0, 0.0);
       perfil.push_back(p);
    }
 
