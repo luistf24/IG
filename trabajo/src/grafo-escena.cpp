@@ -59,6 +59,7 @@ EntradaNGE::EntradaNGE( Material * pMaterial )
 // -----------------------------------------------------------------------------
 // Destructor de una entrada
 
+
 EntradaNGE::~EntradaNGE()
 {
    /**  no fnciona debido a que se hacen copias (duplicados) de punteros
@@ -78,10 +79,42 @@ EntradaNGE::~EntradaNGE()
 // -----------------------------------------------------------------------------
 // Visualiza usando OpenGL
 
+
+
 void NodoGrafoEscena::visualizarGL( ContextoVis & cv )
 {
    // COMPLETAR: práctica 3: recorrer las entradas y visualizar cada nodo.
    // ........
+   //   
+
+   cv.cauce_act->pushMM();
+   
+   // Guardamos el color previamente fijado
+   const Tupla4f color = leerFijarColVertsCauce(cv);
+
+   for ( unsigned i=0; i<entradas.size(); i++ )
+      switch(entradas[i].tipo)
+      {
+         case TipoEntNGE::objeto:
+            entradas[i].objeto->visualizarGL(cv);
+            break;
+         case TipoEntNGE::transformacion:
+            cv.cauce_act->compMM(*(entradas[i].matriz));
+            break;
+         case TipoEntNGE::material:
+            entradas[i].material->activar(cv);
+            break;
+         case TipoEntNGE::noInicializado:
+            cout << "Erro no inicializado" << endl;
+            exit(-1);
+            break;
+         default:
+            cout << "Error en visualizarGL" << endl;
+            exit(-1);
+      }
+
+   glColor4fv(color);
+   
 
    // COMPLETAR: práctica 4: en la práctica 4, si 'cv.iluminacion' es 'true',
    // se deben de gestionar los materiales:
@@ -119,8 +152,8 @@ unsigned NodoGrafoEscena::agregar( const EntradaNGE & entrada )
 {
    // COMPLETAR: práctica 3: agregar la entrada al nodo, devolver índice de la entrada agregada
    // ........
-   return 0 ; // sustituir por lo que corresponda ....
-
+   entradas.push_back(entrada);
+   return entradas.size()-1;
 }
 // -----------------------------------------------------------------------------
 // construir una entrada y añadirla (al final)
@@ -151,9 +184,14 @@ Matriz4f * NodoGrafoEscena::leerPtrMatriz( unsigned indice )
    // COMPLETAR: práctica 3: devolver puntero la matriz en ese índice
    //   (debe de dar error y abortar si no hay una matriz en esa entrada)
    // ........(sustituir 'return nullptr' por lo que corresponda)
-   return nullptr ;
 
-
+   if (indice>=entradas.size() || entradas[indice].tipo!=TipoEntNGE::transformacion || entradas[indice].matriz==nullptr)
+   {
+      cout << "Error en la funcion leerPtrMatriz" << endl;
+      exit(-1);
+   }
+   
+   return entradas[indice].matriz ;
 }
 // -----------------------------------------------------------------------------
 // si 'centro_calculado' es 'false', recalcula el centro usando los centros

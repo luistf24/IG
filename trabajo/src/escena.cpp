@@ -190,7 +190,7 @@ Escena2::Escena2()
    objetos.push_back( new Cilindro(20, 40) );
    objetos.push_back( new Cono(15, 40) );
    objetos.push_back( new Esfera(30,230) );
-   objetos.push_back( new Toro(20,20) );
+   objetos.push_back( new Toro(40,40) );
    cout << "hecho." << endl << flush ;
 }
 

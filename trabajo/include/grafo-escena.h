@@ -65,7 +65,7 @@ class NodoGrafoEscena : public Objeto3D
    protected:
    // COMPLETAR: práctica 3: definir variables y métodos privados del nodo
    // .......
-
+      std::vector<EntradaNGE> entradas;
    public:
 
    NodoGrafoEscena() ;
@@ -77,7 +77,8 @@ class NodoGrafoEscena : public Objeto3D
    // devuelve indice de la entrada dentro del vector de entradas
    unsigned agregar( const EntradaNGE & entrada );
 
-   // construir una entrada y añadirla (al final)
+      
+      // construir una entrada y añadirla (al final)
    unsigned agregar( Objeto3D * pObjeto ); // objeto (copia solo puntero)
    unsigned agregar( const Matriz4f & pMatriz ); // matriz (copia objeto)
    unsigned agregar( Material * pMaterial ); // material (copia solo puntero)
