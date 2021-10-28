@@ -28,7 +28,7 @@
 #include "malla-revol.h"
 #include "matrices-tr.h"
 
-C :: C()
+prueba :: prueba()
 {
    ponerNombre("Prueba");
    agregar(MAT_Traslacion(4.0, 0.0, 0.0));

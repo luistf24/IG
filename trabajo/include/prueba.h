@@ -1,12 +1,12 @@
 #include "grafo-escena.h"
 #include "ig-aux.h"
 
-class C : public NodoGrafoEscena
+class prueba : public NodoGrafoEscena
 {
    protected:
       Matriz4f * traslacion   = nullptr;
    public:
-      C();
+      prueba();
 };
 
 /*class prueba1 : public NodoGrafoEscena*/
