@@ -9,6 +9,7 @@ prueba :: prueba()
 {
    ponerNombre("Prueba");
    agregar(new qloq(gir,gir1));
+   agregar(new Esfera(40,40));
 }
 
 void prueba::giro(const float ngiro)
