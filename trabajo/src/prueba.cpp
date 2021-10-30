@@ -14,12 +14,12 @@ prueba :: prueba()
 
 void prueba::giro(const float ngiro)
 {
-   *gir=MAT_Rotacion(ngiro, 0.0, 1.0, 1.0);
+   *gir=MAT_Rotacion(ngiro, 0.0, 0.0, 1.0);
 }
 
 void prueba::giro1(const float ngiro)
 {
-   *gir1=MAT_Rotacion(ngiro, 1.0, 1.0, 0.0);
+   *gir1=MAT_Rotacion(ngiro, 1.0, 0.0, 0.0);
 }
 
 unsigned prueba::leerNumParametros() const
@@ -42,7 +42,7 @@ toro1::toro1(Matriz4f * &gir)
 {
    ponerNombre("Toro1");
    unsigned g;
-   g=agregar(MAT_Rotacion(0.0, 0.0, 1.0, 1.0));
+   g=agregar(MAT_Rotacion(0.0, 0.0, 0.0, 1.0));
    agregar(new Toro(40,40));
    gir=leerPtrMatriz(g);
 }
@@ -51,7 +51,7 @@ toro2::toro2(Matriz4f * &gir1)
 {
    ponerNombre("Toro2");
    unsigned h;
-   h=agregar(MAT_Rotacion(0.0, 1.0, 1.0, 0.0));
+   h=agregar(MAT_Rotacion(0.0, 1.0, 0.0, 0.0));
    agregar(new Toro(40,40));
    gir1=leerPtrMatriz(h);
 }

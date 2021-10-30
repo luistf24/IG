@@ -114,6 +114,8 @@ void NodoGrafoEscena::visualizarGL( ContextoVis & cv )
       }
 
    glColor4fv(color);
+
+   cv.cauce_act->popMM();
    
 
    // COMPLETAR: práctica 4: en la práctica 4, si 'cv.iluminacion' es 'true',
