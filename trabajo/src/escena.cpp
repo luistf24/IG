@@ -167,6 +167,7 @@ Escena1::Escena1()
    objetos.push_back(new CuboTejado());
    objetos.push_back(new Tetraedro());
    objetos.push_back(new CuboColores());
+   objetos.push_back(new piramide(5));
    cout << "hecho." << endl << flush ;
 }
 
@@ -205,6 +206,7 @@ Escena3::Escena3()
    using namespace std;
    cout << "Creando objetos de escena3 ....." << flush;
    objetos.push_back(new prueba());
+   cout << "hecho" << endl << flush;
 }
 
 

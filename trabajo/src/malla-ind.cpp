@@ -285,3 +285,23 @@ CuboColores::CuboColores()
      {1, 1, 1}  //7
    };
 }
+
+piramide::piramide(int numtri)
+: MallaInd("piramide")
+{
+   Matriz4f rotacion;
+   Tupla3f p0={0.0, 0.0, 0.0};
+   Tupla3f p1={0.0, 0.0, -3.0};
+   Tupla3f p={2.0, 0.0, -3.0};
+   vertices.push_back(p0);
+   vertices.push_back(p1);
+   
+   for (int i=0;i<numtri;i++)
+   {
+      rotacion=MAT_Rotacion(360*i/numtri,0.0,0.0,-3.0);
+      vertices.push_back(rotacion*p);
+   }
+   
+   for (int i=2;i<vertices.size();i++)
+      triangulos.push_back({0,1,i});
+   }

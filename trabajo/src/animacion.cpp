@@ -17,7 +17,7 @@ static bool animaciones_activadas = false ;
 
 bool AnimacionesActivadas()
 {
-   return animaciones_activadas ;
+   return animaciones_activadas;
 }
 
 // --------------------------------------------------------------------------

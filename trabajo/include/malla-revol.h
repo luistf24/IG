@@ -85,5 +85,4 @@ class Toro : public MallaRevol
       const unsigned nperfiles
    ) ;
 } ;
-
 #endif

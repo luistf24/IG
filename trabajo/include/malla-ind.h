@@ -111,5 +111,10 @@ class CuboColores : public MallaInd
    public:
    CuboColores();
 };
+class piramide : public MallaInd
+{
+   public:
+   piramide(int numtri);
+};
 
 #endif
