@@ -206,7 +206,7 @@ Escena3::Escena3()
    using namespace std;
    cout << "Creando objetos de escena3 ....." << flush;
    objetos.push_back(new prueba());
-   objetos.push_back(new C());
+   objetos.push_back(new C(11, 7));
    cout << "hecho" << endl << flush;
 }
 
