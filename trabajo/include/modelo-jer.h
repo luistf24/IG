@@ -1,3 +1,6 @@
+
+//Realizado Luis Tormo Fabios
+
 #include "grafo-escena.h"
 #include "ig-aux.h"
 

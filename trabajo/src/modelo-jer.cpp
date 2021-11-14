@@ -1,3 +1,6 @@
+
+//Realizado por Luis Tormo Fabios
+
 #include "ig-aux.h"
 #include "modelo-jer.h"
 #include "malla-ind.h"
@@ -96,14 +99,14 @@ piezatecho :: piezatecho()
    agregar(MAT_Traslacion(0.0, 0.0, 1.0));
    agregar(new barrote(0.5));
    
-    agregar(MAT_Rotacion(-90, 1.0, 0.0, 0.0));
-    agregar(MAT_Traslacion(1.0, 0.5, 0.5));
-    agregar(new barrote(0.5));
-    agregar(MAT_Rotacion(90, 1.0, 0.0, 0.0));
-    agregar(MAT_Traslacion(0.0, 0.5, -0.5));
-    agregar(new barrote(0.5));
-    agregar(MAT_Traslacion(0.0, 0.0, 1.0));
-    agregar(new barrote(0.5));
+   agregar(MAT_Rotacion(-90, 1.0, 0.0, 0.0));
+   agregar(MAT_Traslacion(1.0, 0.5, 0.5));
+   agregar(new barrote(0.5));
+   agregar(MAT_Rotacion(90, 1.0, 0.0, 0.0));
+   agregar(MAT_Traslacion(0.0, 0.5, -0.5));
+   agregar(new barrote(0.5));
+   agregar(MAT_Traslacion(0.0, 0.0, 1.0));
+   agregar(new barrote(0.5));
    
 }
 
@@ -134,6 +137,7 @@ caja :: caja()
 
 columna :: columna(int tam)
 {
+   ponerColor(Tupla3f(1.0, 1.0, 0.0));
    for (int i=0; i<tam-1; i++)
    {
       agregar(new caja());
@@ -143,6 +147,7 @@ columna :: columna(int tam)
 
 techo :: techo(int l, int tam)
 {
+   ponerColor(Tupla3f (1.0, 1.0, 0.0));
    agregar(MAT_Traslacion(0.0,tam-1,-1.0));
    agregar(MAT_Escalado(0.75,0.5,1.5));
    for (int i=0;i<l; i++)
@@ -153,6 +158,7 @@ techo :: techo(int l, int tam)
 }
 parteatras :: parteatras(int tam)
 {
+   ponerColor(Tupla3f (0.6, 0.3, 0.0));
    agregar(MAT_Traslacion(-0.5, tam-0.75, 1.0));
    agregar(MAT_Rotacion(90, 1.0, 0.0, 0.0));
    agregar(new barrote(0.5));
@@ -165,6 +171,7 @@ parteatras :: parteatras(int tam)
 
 pinacho :: pinacho(int tam)
 {
+   ponerColor(Tupla3f (1.0, 1.0, 0.0));
    agregar(MAT_Traslacion(0.0, tam-1, 0.0));
    agregar(new caja());
    agregar(MAT_Traslacion(0.0, 2, -0.5));
@@ -179,6 +186,7 @@ pinacho :: pinacho(int tam)
 
 cable :: cable(int l, int tam, Matriz4f * &movcuerda)
 {
+   ponerColor(Tupla3f (0.63, 0.63, 0.63));
    agregar(MAT_Traslacion(0.0, tam-1.65, -1.5));
    agregar(MAT_Traslacion(0.0, 0.5, 0.0));
    agregar(MAT_Escalado(0.2, 0.2, 0.2));
