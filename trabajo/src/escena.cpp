@@ -12,7 +12,7 @@
 #include "seleccion.h"
 #include "prueba.h"
 #include "modelo-jer.h"
-
+#include "examen.h"
 
 // -----------------------------------------------------------------------------------------------
 
@@ -168,6 +168,7 @@ Escena1::Escena1()
    objetos.push_back(new Tetraedro());
    objetos.push_back(new CuboColores());
    objetos.push_back(new piramide(5));
+   objetos.push_back(new estrellaZ(8));
    cout << "hecho." << endl << flush ;
 }
 
@@ -207,6 +208,7 @@ Escena3::Escena3()
    cout << "Creando objetos de escena3 ....." << flush;
    objetos.push_back(new prueba());
    objetos.push_back(new C(11, 7));
+   objetos.push_back(new examen(12));
    cout << "hecho" << endl << flush;
 }
 

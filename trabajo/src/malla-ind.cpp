@@ -304,4 +304,27 @@ piramide::piramide(int numtri)
    
    for (int i=2;i<vertices.size();i++)
       triangulos.push_back({0,1,i});
+}
+
+estrellaZ::estrellaZ(unsigned int n)
+{
+   Matriz4f rotacion;
+   Tupla3f p0={0.5, 0.5, 0.0};
+   Tupla3f p1={0.0, 1.0, 0.0};
+   vertices.push_back(p0);
+   //vertices.push_back(p1);
+   Tupla3f p = p1/3;
+
+   for (unsigned int i=0; i<n+1; i++)
+   {
+      vertices.push_back((MAT_Rotacion(360*i/n, 0.0, 0.0, 1.0)*p1)*0.5 + Tupla3f(0.5, 0.5, 0.0));
+      vertices.push_back((MAT_Rotacion(360*(i+0.5)/n, 0.0, 0.0, 1.0)*p)*0.5 + Tupla3f(0.5, 0.5, 0.0));
    }
+   for (int i=1; i<2*n +2 ; i++)
+      triangulos.push_back({0, i, i+1});
+   
+  col_ver.push_back(Tupla3f(1.0, 1.0, 1.0));
+  for (int i=1; i<vertices.size(); i++)
+      col_ver.push_back(vertices[i]);
+   
+}
