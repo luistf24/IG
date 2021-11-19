@@ -10,6 +10,7 @@
 #include "tuplasg.h"
 #include "malla-ind.h"   // declaración de 'ContextoVis'
 #include "lector-ply.h"
+#include "cmath"
 
 
 // *****************************************************************************
@@ -328,3 +329,63 @@ estrellaZ::estrellaZ(unsigned int n)
       col_ver.push_back(vertices[i]);
    
 }
+
+rejillay::rejillay(unsigned m, unsigned n)
+{
+   for (int i=0;i<m;i++)
+   {
+      for(int j=0;j<n;j++)
+         vertices.push_back(Tupla3f(i*0.1,0.0,j*0.1));
+   }
+   std::cout << "Numero de vertices: "<< vertices.size() << std::endl;
+   for(int i=1;i<m*n-n;i++)
+   {
+      if(i%n != 0)
+         triangulos.push_back({i-1,i,i+n-1});
+      if(i%m != 0)
+         triangulos.push_back({i,i+n-1,i+n});
+   }
+
+   for(int i=0;i<vertices.size();i++)
+   {
+      col_ver.push_back(vertices[i]);
+   }
+}
+
+MallaTorre::MallaTorre(int n)
+{
+   for(int i=0; i<n; i++)
+   {
+      vertices.push_back(Tupla3f(0.5, i, 0.5));
+      vertices.push_back(Tupla3f(-0.5, i, 0.5));
+      vertices.push_back(Tupla3f(-0.5, i, -0.5));
+      vertices.push_back(Tupla3f(0.5, i, -0.5));
+   }
+
+   for(int i=0; i<vertices.size()-4; i++)
+   {
+      triangulos.push_back({i,i+3,i+4});
+      triangulos.push_back({i,i+1,i+4});
+   }
+}
+
+MallaPiramideL::MallaPiramideL()
+{
+   vertices.push_back(Tupla3f(0.0, 1.0, 0.0));
+   vertices.push_back(Tupla3f(0.0, 0.0, 0.0));
+   vertices.push_back(Tupla3f(-1.0, 0.0, 0.0));
+   vertices.push_back(Tupla3f(-0.5, 0.0, 0.5));
+   vertices.push_back(Tupla3f(1.0, 0.0, 0.0));
+   vertices.push_back(Tupla3f(0.5, 0.0, 0.5));
+   vertices.push_back(Tupla3f(0.0, 0.0, -1.0));
+
+   triangulos.push_back({0,1,2});
+   triangulos.push_back({0,2,3});
+   triangulos.push_back({0,1,3});
+   triangulos.push_back({0,1,4});
+   triangulos.push_back({0,4,5});
+   triangulos.push_back({0,1,5});
+   triangulos.push_back({0,2,6});
+   triangulos.push_back({0,4,6});
+}
+

@@ -169,6 +169,9 @@ Escena1::Escena1()
    objetos.push_back(new CuboColores());
    objetos.push_back(new piramide(5));
    objetos.push_back(new estrellaZ(8));
+   objetos.push_back(new rejillay(10,10));
+   objetos.push_back(new MallaTorre(5));
+   objetos.push_back(new MallaPiramideL());
    cout << "hecho." << endl << flush ;
 }
 

@@ -124,4 +124,21 @@ class estrellaZ : public MallaInd
       estrellaZ(unsigned int  n);
 };
 
+class rejillay : public MallaInd
+{
+   public:
+      rejillay(unsigned m, unsigned n);
+};
+
+class MallaTorre : public MallaInd 
+{
+   public:
+      MallaTorre(int n);
+};
+
+class MallaPiramideL : public MallaInd
+{
+   public:
+      MallaPiramideL();
+};
 #endif
